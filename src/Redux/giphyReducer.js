@@ -7,7 +7,7 @@ const types = {
 const initialState = {
   loading: false,
   error: "",
-  data: [],
+  dataSource: {},
 };
 
 export default function giphyReducer(state = initialState, action) {
@@ -15,7 +15,7 @@ export default function giphyReducer(state = initialState, action) {
     case types.REQUEST:
       return { ...state, loading: true };
     case types.SUCCESS:
-      return { ...state, loading: false, data: action.payload };
+      return { ...state, loading: false, dataSource: action.payload };
     case types.ERROR:
       return { ...state, loading: false, error: action.error };
     default:

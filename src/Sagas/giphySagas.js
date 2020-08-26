@@ -14,7 +14,7 @@ function* searchGiphy(payload) {
   try {
     const result = yield call(GiphySerice.searchGiphy, payload);
 
-    yield put(giphyActionsCreator().giphySuccess(result));
+    yield put(giphyActionsCreator().giphySuccess(result.data));
   } catch (error) {
     yield put(giphyActionsCreator().giphyError(error));
   }
