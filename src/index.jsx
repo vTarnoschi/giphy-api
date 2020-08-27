@@ -7,11 +7,14 @@ import { Provider } from "react-redux";
 import getStore from "./Store";
 
 import renderRoutes from "./Routes";
+import GlobalProvider from "./Context";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={getStore()}>
-      <BrowserRouter>{renderRoutes()}</BrowserRouter>
+      <BrowserRouter>
+        <GlobalProvider>{renderRoutes()}</GlobalProvider>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

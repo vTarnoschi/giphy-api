@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
 export default {
-  App: lazy(() => import("../App")),
-  Favoritos: lazy(() => import("../Favoritos")),
+  App: lazy(() => import("../Containers/Home")),
+  Favoritos: lazy(() => import("../Containers/Favoritos")),
 };
