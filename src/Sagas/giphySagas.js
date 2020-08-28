@@ -8,11 +8,11 @@ const sagaTypes = {
   GIPHY: "GIPHY_SAGA",
 };
 
-function* searchGiphy(payload) {
+function* searchGiphy(values) {
   yield put(giphyActionsCreator().giphyRequest());
 
   try {
-    const result = yield call(GiphySerice.searchGiphy, payload);
+    const result = yield call(GiphySerice.searchGiphy, values.payload);
 
     yield put(giphyActionsCreator().giphySuccess(result.data));
   } catch (error) {

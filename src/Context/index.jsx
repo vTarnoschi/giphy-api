@@ -3,25 +3,25 @@ import React, { memo, useMemo, useCallback, useState, useContext } from "react";
 const GlobalContext = React.createContext();
 
 const GlobalProvider = memo(({ children }) => {
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [favoriteGifs, setFavoriteGifs] = useState([]);
 
-  const onRemoveFavorite = useCallback((movieId) => {
-    setFavoriteMovies((state) =>
-      state.filter((item) => item.movieId !== movieId)
+  const onRemoveFavorite = useCallback((id) => {
+    setFavoriteGifs((state) =>
+      state.filter((item) => item.id !== id)
     );
   }, []);
 
-  const onSetFavorite = useCallback((values) => setFavoriteMovies(values), []);
+  const onSetFavorite = useCallback((values) => setFavoriteGifs(values), []);
 
   const provider = useMemo(
     () => ({
-      state: { favoriteMovies },
+      state: { favoriteGifs },
       actions: {
         onRemoveFavorite,
         onSetFavorite,
       },
     }),
-    [favoriteMovies, onRemoveFavorite, onSetFavorite]
+    [favoriteGifs, onRemoveFavorite, onSetFavorite]
   );
 
   return (

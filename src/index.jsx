@@ -4,6 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 
 import { Provider } from "react-redux";
 
+import "./GlobalCss.css";
+
 import getStore from "./Store";
 
 import renderRoutes from "./Routes";

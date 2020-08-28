@@ -1,12 +1,14 @@
 import React, { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import routes from "./routes";
 import pages from "./pages";
 
 function LoadingComponents(LazyComponent, route) {
   return (props) => (
-    <Suspense fallback={"Carregando"}>
+    <Suspense fallback={<CircularProgress color="inherit" />}>
       <LazyComponent {...props} route={route} />
     </Suspense>
   );
