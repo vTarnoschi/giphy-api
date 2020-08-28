@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { memo, useCallback } from "react";
 
 import Card from "@material-ui/core/Card";
 import ShareIcon from "@material-ui/icons/Share";
@@ -10,8 +10,6 @@ import GifsStyle from "./styles";
 
 const ListaGifs = memo(
   ({ id, url, title, height, isFavorite, setFavorite, onCopy }) => {
-    const [loaded, setLoaded] = useState(true);
-
     const handleOnSetFavorite = useCallback(() => {
       if (setFavorite) setFavorite(id, url, title, height);
     }, [id, url, setFavorite, title, height]);
@@ -24,7 +22,7 @@ const ListaGifs = memo(
 
     const handleOnCopy = useCallback(() => {
       if (onCopy) onCopy(id);
-    }, [onCopy]);
+    }, [onCopy, id]);
 
     return (
       <GifsStyle styles={{ height }}>
