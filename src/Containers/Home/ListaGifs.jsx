@@ -38,7 +38,7 @@ const ListaGifs = () => {
     [onSetFavorite, favoriteGifs]
   );
 
-  const handleOnCopy = (id) => {
+  const handleOnCopy = useCallback((id) => {
     const imageTag = document.getElementById(`giphy-image-${id}`);
 
     const textAreaElement = document.createElement("textarea");
@@ -50,7 +50,7 @@ const ListaGifs = () => {
     document.body.removeChild(textAreaElement);
 
     setOpen((state) => !state);
-  };
+  }, []);
 
   const handleClose = () => setOpen((state) => !state);
 

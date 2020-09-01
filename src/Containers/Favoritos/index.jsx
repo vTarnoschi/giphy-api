@@ -39,7 +39,7 @@ const Favoritos = memo(({ history }) => {
     [onRemoveFavorite]
   );
 
-  const handleOnCopy = (id) => {
+  const handleOnCopy = useCallback((id) => {
     const imageTag = document.getElementById(`giphy-image-${id}`);
 
     const textAreaElement = document.createElement("textarea");
@@ -51,9 +51,9 @@ const Favoritos = memo(({ history }) => {
     document.body.removeChild(textAreaElement);
 
     setOpen((state) => !state);
-  };
+  }, []);
 
-  const pushHome = () => history.push("/");
+  const pushHome = useCallback(() => history.push("/"), [history]);
 
   const handleClose = () => setOpen((state) => !state);
 

@@ -36,7 +36,9 @@ const BuscaGifs = memo(({ history }) => {
     [dispatch]
   );
 
-  const pushFavorites = () => history.push("/favoritos");
+  const pushFavorites = useCallback(() => history.push("/favoritos"), [
+    history,
+  ]);
 
   return (
     <div style={style}>
